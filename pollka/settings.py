@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Django settings for pollka project.
+# Django settings
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -99,6 +99,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Debug Toolbar middleware must come after any other middleware that
+    # encodes the response's content (such as GZipMiddleware).
+    # Note: Be aware of middleware ordering and other middleware that may
+    # intercept requests and return responses. Putting the debug toolbar
+    # middleware after the Flatpage middleware, for example, means the toolbar
+    # will not show up on flatpages.
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'pollka.urls'
