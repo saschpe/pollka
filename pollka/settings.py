@@ -121,16 +121,17 @@ INSTALLED_APPS = (
 
     # Django core apps:
     'django.contrib.admin',
+    'django.contrib.admindocs',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 
     # Local apps:
+    #'pollka.accounts',
+    #'pollka.events',
     'pollka.polls',
 )
 

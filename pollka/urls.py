@@ -7,12 +7,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'pollka.views.home', name='home'),
-    # url(r'^pollka/', include('pollka.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'pollka.views.index'),
+    #url(r'^accounts/', include('pollka.accounts.urls')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    #url(r'^events/', include('pollka.events.urls')),
+    url(r'^polls/', include('pollka.polls.urls')),
 )
