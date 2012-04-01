@@ -3,6 +3,7 @@
 
 import os
 
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -15,11 +16,11 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'pollka',                      # Or path to database file if using sqlite3.
-        'USER': 'pollka',                      # Not used with sqlite3.
-        'PASSWORD': 'pollka',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'NAME': 'pollka',       # Or path to database file if using sqlite3.
+        'USER': 'pollka',       # Not used with sqlite3.
+        'PASSWORD': 'pollka',   # Not used with sqlite3.
+        'HOST': '',             # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',             # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -146,10 +147,15 @@ INSTALLED_APPS = (
 
     # Local apps:
     #'pollka.accounts',
-    #'pollka.blog', # Or use a 3rd-party app
-    #'pollka.events', # Maybe this can be integrated into 'polls'
     'pollka.polls',
 )
+
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+
+if DEBUG is True:
+    LOG_FILE_NAME = 'debug.log'
+else:
+    LOG_FILE_NAME = 'production.log'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -164,7 +170,30 @@ LOGGING = {
             '()': 'django.utils.log.RequireDebugFalse'
         }
     },
+    'formatters': {
+        'verbose': {
+            'format': '[%(asctime)s] %(levelname)s %(module)s %(process)d %(thread)d: %(message)s',
+        },
+        'simple': {
+            'format': '[%(asctime)s] %(levelname)s: %(message)s',
+        },
+    },
     'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.WatchedFileHandler',
+            'formatter': 'simple',
+            'filename': os.path.join(os.path.curdir, 'log', LOG_FILE_NAME),
+        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -172,11 +201,27 @@ LOGGING = {
         }
     },
     'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
+        'django': {
+            'handlers': ['null'],
             'propagate': True,
-        }, 
+            'level': 'INFO',
+        },
+        'django.request': {
+            'handlers': ['mail_admins', 'file'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        # For performance reasons, SQL logging is only enabled when
+        # settings.DEBUG is set to True, regardless of the logging level
+        # or handlers that are installed.
+        'django.db.backends': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+        'pollka.polls.models': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
     }
 }
 
