@@ -10,7 +10,7 @@ class UserProfile(models.Model):
 
     See https://docs.djangoproject.com/en/1.3/topics/auth/#storing-additional-information-about-users
     '''
-    image = models.ImageField()
+    #image = models.ImageField()
     user = models.OneToOneField(User)
 
 
