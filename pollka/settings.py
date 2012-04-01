@@ -73,7 +73,10 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.abspath('{0}/../3rdparty/bootstrap/bootstrap'.format(os.path.curdir)),
+    os.path.abspath(os.path.join(os.path.curdir, 'static', 'bootstrap')),
+    os.path.abspath(os.path.join(os.path.curdir, 'static', 'jquery')),
+    # Our own custom stuff:
+    #os.path.abspath(os.path.join(os.path.curdir, 'static')),
 )
 
 # List of finder classes that know how to find static files in
@@ -120,10 +123,12 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.abspath(os.path.join(os.path.curdir, 'pollka', 'templates'))
 )
 
 INSTALLED_APPS = (
     # Third party apps:
+    'bootstrap',
     'debug_toolbar',
     #'gunicorn',
     'south',
@@ -141,7 +146,8 @@ INSTALLED_APPS = (
 
     # Local apps:
     #'pollka.accounts',
-    #'pollka.events',
+    #'pollka.blog', # Or use a 3rd-party app
+    #'pollka.events', # Maybe this can be integrated into 'polls'
     'pollka.polls',
 )
 
@@ -170,7 +176,7 @@ LOGGING = {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
-        },
+        }, 
     }
 }
 

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="hero-unit">
+    <h1>Pollka</h1>
+    <p>Instantly create polls and schedules</p>
+    <p>
+      <a class="btn btn-primary btn-large" href="{% url pollka.polls.views.create %}">Start a poll!</a>
+      <!--<a class="btn btn-primary btn-large" href="{# url pollka.events.views.create #}">Schedule an event</a>-->
+      <!--<a class="btn btn-primary btn-large" href="{# url pollka.accounts.views.register #}">Sign Up »</a>-->
+      <!--<a class="btn btn-primary btn-large" href="{# url django.contrib.auth.views.login #}?next={# url pollka.feeds.views.index #}">Log In »</a>-->
+    </p>
+  </div>
+  <div class="row">
+    <div class="span4">
+      <h3>Blog</h3>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    </div><!--/span-->
+    <div class="span4">
+      <h3>Buzz</h3>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    </div><!--/span-->
+    <div class="span4">
+      <h3>Social</h3>
+      <!--<div class="dTwoColumns ndhBlogBuzzSocialMediaDTwoColumns clearfix">
+        <a id="ndhTwitterFloatIcon" class="ndhBlogBuzzSocialMediaFloatIcon dColumn" target="_blank" onclick="_gaq.push(['_trackEvent', 'Home', 'Exit', 'Twitter']);" href="http://twitter.com/doodletweet"></a>
+        <a class="h4 blue spaceDAfter dLastColumn" target="_blank" onclick="_gaq.push(['_trackEvent', 'Home', 'Exit', 'Twitter']);" href="http://twitter.com/doodletweet">Follow us</a>
+      </div>
+
+      <div class="dTwoColumns ndhBlogBuzzSocialMediaDTwoColumns clearfix">
+        <a id="ndhFacebookFloatIcon" class="ndhBlogBuzzSocialMediaFloatIcon dColumn" target="_blank" onclick="_gaq.push(['_trackEvent', 'Home', 'Exit', 'Facebook']);" href="http://www.facebook.com/DoodleAG"></a>
+        <a class="h4 blue spaceDAfter dLastColumn" target="_blank" onclick="_gaq.push(['_trackEvent', 'Home', 'Exit', 'Facebook']);" href="http://www.facebook.com/DoodleAG">Visit our fan page</a>
+      </div>
+
+      <div class="dTwoColumns ndhBlogBuzzSocialMediaDTwoColumns clearfix">
+        <a id="ndhVimeoFloatIcon" class="ndhBlogBuzzSocialMediaFloatIcon dColumn" target="_blank" onclick="_gaq.push(['_trackEvent', 'Home', 'Exit', 'Vimeo']);" href="http://vimeo.com/doodletv/videos"></a>
+        <a class="h4 blue spaceDAfter dLastColumn" target="_blank" onclick="_gaq.push(['_trackEvent', 'Home', 'Exit', 'Vimeo']);" href="http://vimeo.com/doodletv/videos">Watch our videos</a>
+      </div>-->
+    </div>
+  </div>
+{% endblock %}

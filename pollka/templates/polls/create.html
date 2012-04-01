@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Create a new poll!{% endblock %}
+
+{% block content %}
+  <ul class="breadcrumb">
+    <li><a href="#">Poll</a> <span class="divider">></span></li>
+    <li class="active">General</li>
+  </ul>
+  <form action="{% url pollka.polls.views.create %}" class="form-horizontal" method="post">{% csrf_token %}
+    {{ form }}
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Enter some choices >></button>
+    </div>
+  </form>
+{% endblock %}
