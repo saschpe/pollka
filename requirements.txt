@@ -1,6 +1,9 @@
 Django==1.4
 Fabric==1.4.0
+Pygments==1.5
 South==0.7.4
+-e git://github.com/earle/django-bootstrap.git@520a59f3432e795e9c94b16bfe14538c655c1e0c#egg=bootstrap-dev
+bpython==0.10.1
 distribute==0.6.24
 django-debug-toolbar==0.9.4
 django-tastypie==0.9.11
