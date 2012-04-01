@@ -14,6 +14,6 @@ urlpatterns = patterns('django.contrib.auth.views',
     url(r'^reset/done/$', 'password_reset_complete', {'template_name': 'accounts/reset_done.html'}),
 )
 
-urlpatterns += patterns('apps.accounts.views',
+urlpatterns += patterns('pollka.accounts.views',
     url(r'^register/$', 'register'),
 )
