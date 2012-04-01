@@ -45,8 +45,8 @@
                   </ul>
                 </li>
               {% else %}
-                <li><a href="{% url django.contrib.auth.views.login %}?next={% url rdr.feeds.views.index %}">Sign in</a></li>
-                <li><a href="{% url rdr.accounts.views.register %}">Register</a></li>
+                <li><a href="{% url django.contrib.auth.views.login %}?next={% url pollka.views.index %}">Sign in</a></li>
+                <li><a href="{% url pollka.accounts.views.register %}">Register</a></li>
               {% endif %}
               {% if user.is_staff %}
                 <li class="divider-vertical"></li>
