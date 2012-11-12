@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ poll.title }}{% endblock %}
+{% block title %}Edit {{ poll.title }}{% endblock %}
 
 {% block content %}
   <h2>{{ poll.title }}</h2>
   <p>{{ poll.description }}</p>
   <p>{{ poll.author }}</p>
 {% endblock %}
+
 

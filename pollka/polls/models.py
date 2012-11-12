@@ -23,7 +23,7 @@ class Poll(models.Model):
         return self.title
 
     def clean(self):
-        if self.author is not None and (self.author_name is not None or self.author_email is not None):
+        if self.author is not None and (len(self.author_name) is not 0 or len(self.author_email) is not 0):
             raise ValidationError('Provide either \'author\' for authenticated users or \'author_name\' (optionally with \'author_email\') for anonymous users.')
 
     @models.permalink
